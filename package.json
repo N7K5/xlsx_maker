@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/N7K5/xlsx_maker#readme",
   "dependencies": {
-    "convert-excel-to-json": "^1.4.0"
+    "convert-excel-to-json": "^1.4.0",
+    "json2xls": "^0.1.2",
+    "node-json-xlsx": "^0.2.2"
   }
 }
