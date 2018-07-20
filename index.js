@@ -49,5 +49,8 @@ console.log(JSON.stringify(result, undefined, 2));
 // var xls = json2xls(result);
 
 // fs.writeFileSync('result.xlsx', xls, 'binary');
-
-require('json2xlsx').write("Created_"+filename, "xlxs", result);
+try {
+    require('json2xlsx').write("Created_" + Math.floor(Math.random()*1000) + "_" + filename, "xlxs", result);
+} catch(e) {
+    console.log("\n\n\tCould not create file... Permition problem\n\n");
+}
