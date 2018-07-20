@@ -1,9 +1,11 @@
 
+const fs= require("fs");
+
 const excelToJson = require('convert-excel-to-json');
 
 const convert_to_json= require("./convert_to_json");
 
-sourceFile= __dirname + "/IT_old.xls";
+sourceFile= __dirname + "/lt.xls";
 
 
 var req_funs= {
@@ -32,3 +34,9 @@ var req_funs= {
 const result = convert_to_json.convert(sourceFile, req_funs, 2);
 
 console.log(JSON.stringify(result, undefined, 2));
+
+fs.writeFile("./res.json", JSON.stringify(result, undefined, 2), (err)=> {
+    if(err) {
+        console.log(err);
+    }
+});

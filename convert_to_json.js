@@ -44,9 +44,12 @@ var convert= function(file, req_funs, starting_row) {
             else {
                 let tmp_res= fn(stud);
                 if(tmp_res== null || tmp_res== undefined) {
-                    obj[blocks[i]]= "N/A";
+                    obj[blocks[i]]= " ";
                 }
                 else {
+                    if(typeof(tmp_res)== "number") {
+                        tmp_res= round(tmp_res, 2);
+                    }
                     obj[blocks[i]]= tmp_res;
                 }
             }
@@ -57,6 +60,12 @@ var convert= function(file, req_funs, starting_row) {
     return result;
 
 }
+
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+  
+  
 
 module.exports= {
     convert,
