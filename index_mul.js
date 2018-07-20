@@ -12,7 +12,7 @@ const filename= ["cse.xls", "cse_lat.xls", "it.xls", "it_lat.xls", "lt.xls"];
 
 var req_funs= {
     "Name":(obj) => obj.C,
-    "Institution": (obj) => "Govt. College Of Engg And Leather Tech",
+    "Institution": (obj) => "Govt. College Of Engineering And Leather Technology",
     "Roll no": (obj) => obj.AI,
     "Gender": (obj) => obj.D,
     "DOB": (obj) => obj.E,
@@ -20,7 +20,31 @@ var req_funs= {
     "10th Year of Passing": (obj) => obj.I,
     "12th Marks": (obj) => obj.K,
     "12th Year of Passing": (obj) => obj.L,
-    "Grad. avg Marks": (obj) => ((obj.W+ obj.X+ obj.Y+ obj.Z+ obj.AA)/5),
+    "Grad. avg Marks": (obj) => {
+        var sum= 0;
+        var ind= 0;
+        if(typeof(obj.W)=="number") {
+            sum+=obj.W;
+            ind++;
+        };
+        if(typeof(obj.X)=="number") {
+            sum+=obj.X;
+            ind++;
+        };
+        if(typeof(obj.Y)=="number") {
+            sum+=obj.Y;
+            ind++;
+        };
+        if(typeof(obj.Z)=="number") {
+            sum+=obj.Z;
+            ind++;
+        };
+        if(typeof(obj.AA)=="number") {
+            sum+=obj.AA;
+            ind++;
+        };
+        return (sum / ind);
+    }, //((obj.W+ obj.X+ obj.Y+ obj.Z+ obj.AA)/5),
     "Grad year of passing": (obj) => 2019,
     "Stream": (obj) => "IT",
     "Degree": (obj) => "B. Tech",
