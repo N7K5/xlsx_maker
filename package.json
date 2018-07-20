@@ -25,6 +25,7 @@
   "dependencies": {
     "convert-excel-to-json": "^1.4.0",
     "json2xls": "^0.1.2",
+    "json2xlsx": "^0.1.6",
     "node-json-xlsx": "^0.2.2"
   }
 }

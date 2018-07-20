@@ -5,9 +5,11 @@ const excelToJson = require('convert-excel-to-json');
 
 const convert_to_json= require("./convert_to_json");
 
-const json2xls = require('json2xls');
+// const json2xls = require('json2xls');
 
-sourceFile= __dirname + "/lt.xls";
+const filename= "lt.xls";
+
+sourceFile= __dirname + "/"+ filename;
 
 
 var req_funs= {
@@ -44,6 +46,8 @@ console.log(JSON.stringify(result, undefined, 2));
 // });
 
 
-var xls = json2xls(result);
+// var xls = json2xls(result);
 
-fs.writeFileSync('result.xlsx', xls, 'binary');
+// fs.writeFileSync('result.xlsx', xls, 'binary');
+
+require('json2xlsx').write("Created_"+filename, "xlxs", result);
